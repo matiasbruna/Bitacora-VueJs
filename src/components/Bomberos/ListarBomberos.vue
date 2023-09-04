@@ -45,7 +45,7 @@ export default{
                     <td>{{ bombero.despachador }}</td>
                     <td>{{ bombero.admin }}</td>
                     <td>
-                        <router-link :to="'/editarBomberos/' + bombero._id" class="btn btn-info">Modificar</router-link>
+                        <router-link :to="'/bomberos/' + bombero._id" class="btn btn-info">Modificar</router-link>
                     </td>
                 </tr>
             </tbody>

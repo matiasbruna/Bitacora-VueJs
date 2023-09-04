@@ -12,6 +12,11 @@ const router = createRouter({
       path: '/bomberos',
       name: 'bomberos',
       component: () => import('../views/Bomberos/Bomberos.vue')
+    },
+    {
+      path: '/bomberos/:id',
+      name: 'bomberos/:id',
+      component : () =>import('../views/Bomberos/BomberosEditar.vue')
     }
   ]
 })
