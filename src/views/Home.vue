@@ -1,0 +1,10 @@
+<template>
+    <div class="card card-body p-5 mt-4">
+        <h1 class="display-4">Bitacora Bomberos San Francisco.</h1>
+
+        <hr class="my-4" />
+        <p>Despachador: </p>
+        <hr class="my-4" />
+
+    </div>
+</template>
