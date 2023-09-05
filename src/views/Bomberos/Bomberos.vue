@@ -3,7 +3,7 @@
         <h1>Listado de Bomberos</h1>
         <br>
         <div>
-            <a href="/bomberoAdd" class="btn btn-primary">Agregar Bombero Nuevo</a>
+            <RouterLink to="/bomberos/nuevo" class="btn btn-primary">Agregar Bombero</RouterLink>
         </div>
         <br>
         <ListarBomberos>
@@ -12,11 +12,13 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import ListarBomberos from '../../components/Bomberos/ListarBomberos.vue'
 
 export default{
     components:{
-        ListarBomberos
-    }
+    ListarBomberos,
+    RouterLink
+}
 }
 </script>

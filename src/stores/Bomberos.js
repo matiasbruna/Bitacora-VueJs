@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia'
 
-export const listaBomberos = defineStore('listaBomberos',{
+export const url = defineStore('url',{
 
     //satate
     state: () => {
-        
+        return{
+            url: 'http://localhost:3000'
+        }
     },
     //getters
     actions:{

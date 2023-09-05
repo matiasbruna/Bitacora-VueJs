@@ -1,19 +1,26 @@
 <script>
 import axios from 'axios'
+import {urlServidor} from '../../stores/urlServidor'
 
 export default {
 
   data: () => {
     return {
       bombero: [],
-      grados: []
+      grados: [],
+      estados: []
     }
   },
   async created() {
-    let url = "https://bvsf.onrender.com/bomberos/" + this.$route.params.id;
-    let urlGrados = "https://bvsf.onrender.com/bomberos/grados";
+
+
+    let url = urlServidor().url +"/bomberos/" + this.$route.params.id;
+    let urlGrados = urlServidor().url + "/bomberos/grados";
+    let urlEstados = urlServidor().url + "/bomberos/estados";
+
     await axios.get(url).then((res) => (this.bombero = res.data));
     await axios.get(urlGrados).then((res)=>(this.grados = res.data));
+    await axios.get(urlEstados).then((res)=>(this.estados = res.data));
 
   }
 }
@@ -22,7 +29,6 @@ export default {
 </script>
 
 <template>
-  {{ grados }}
   <div class="col-md-4 mx-auto">
     <div class="card">
       <div class="card-header text-center">
@@ -60,7 +66,7 @@ export default {
             <br>
             <select class="form-select" name="rango">
 
-              <option value="{{this.nombre}}">{{ this.nombre }}</option>
+              <option v-for="grado in grados" :key="grado.numero">{{ grado.nombre}}</option>
             </select>
           </div>
           <div class="mb-3">
@@ -68,7 +74,7 @@ export default {
             <br>
             <select class="form-select" name="estado">
 
-              <option value="{{this.estado}}">{{ this.estado }}</option>
+              <option v-for="estado in estados" :key="estado">{{ estado.estado }}</option>
 
             </select>
           </div>
@@ -88,7 +94,7 @@ export default {
 
             <button class="btn btn-primary" type="submit">Guardar</button>
 
-            <a href="/Bomberos" class="btn btn-primary">Volver</a>
+            <a href="/bomberos" class="btn btn-primary">Volver</a>
           </div>
         </form>
       </div>

@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import {urlServidor} from '../../stores/urlServidor'  //store que guarda el comienzo de la ruta del servidor donde esta la app 
 
 export default{
 
@@ -9,7 +10,8 @@ export default{
         }       
     },
     async created(){
-        let url = "https://bvsf.onrender.com/bomberos"
+        let store = urlServidor()
+        let url = store.url + '/bomberos' 
 
         await axios.get(url).then((res)=>(this.bomberos = res.data))
 

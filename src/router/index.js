@@ -17,6 +17,12 @@ const router = createRouter({
       path: '/bomberos/:id',
       name: 'bomberos/:id',
       component : () =>import('../views/Bomberos/BomberosEditar.vue')
+    },
+    {
+      path: '/bomberos/nuevo',
+      name :'bomberos/nuevo',
+      component: () =>import('../views/Bomberos/NuevoBombero.vue')
+
     }
   ]
 })
